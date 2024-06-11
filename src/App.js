@@ -1,14 +1,15 @@
 import "./App.css";
-import Form from "./form/Form";
+import Divider from "./components/Divider";
+import Form from "./components/Form";
 
 function App() {
   return (
     <div className="app">
       <div className="calculator">
         <Form />
+        <Divider />
+        <div className="results">RESULTS</div>
       </div>
-      <div className="divider">DIVIDER</div>
-      <div className="results">RESULTS</div>
     </div>
   );
 }

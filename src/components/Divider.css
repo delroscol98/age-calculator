@@ -1,0 +1,25 @@
+.divider {
+  position: relative;
+}
+
+.divider__divider {
+  position: absolute;
+  width: 100%;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.divider__button {
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
+  border: none;
+  background-color: var(--purple);
+  border-radius: 50%;
+  width: 6.4rem;
+  height: 6.4rem;
+}
+
+.divider__button--icon {
+  width: 2.4rem;
+}
