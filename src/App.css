@@ -1,3 +1,28 @@
+/* VARIABLES */
+:root {
+  --purple: hsl(259, 100%, 65%);
+  --light-red: hsl(0, 100%, 67%);
+  --white: hsl(0, 0%, 100%);
+  --off-white: hsl(0, 0%, 94%);
+  --light-grey: hsl(0, 0%, 86%);
+  --smokey-grey: hsl(0, 1%, 44%);
+  --off-black: hsl(0, 0%, 8%);
+}
+
+/* TYPOGRAPHY */
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+
+.font-reg {
+  font-weight: 400;
+}
+.font-bold {
+  font-weight: 700;
+}
+.font-very-bold {
+  font-weight: 800;
+}
+
+/* BASE */
 *,
 *::after,
 *::before {
@@ -13,4 +38,22 @@ html {
 body {
   box-sizing: border-box;
   min-height: 100vh;
+  font-family: "Poppins", sans-serif;
+  background-color: var(--light-grey);
+}
+
+/* APP */
+.app {
+  background-color: var(--white);
+  width: min(91.4%, 84rem);
+  margin: 8.8rem auto;
+  padding: 4.8rem 2.4rem;
+  border-radius: 2.4rem;
+  border-bottom-right-radius: 10rem;
+}
+
+@media screen and (min-width: 27em) {
+  .app {
+    margin-top: 17.1rem;
+  }
 }
