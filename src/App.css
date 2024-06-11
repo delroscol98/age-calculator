@@ -17,9 +17,26 @@
 }
 .font-bold {
   font-weight: 700;
+  letter-spacing: calc(25 / 100 * 1rem);
 }
 .font-very-bold {
   font-weight: 800;
+}
+
+.ff-body {
+  font-size: 1.4rem;
+}
+
+.heading-sm {
+  font-size: clamp(1.2rem, 3.2vw, 1.4rem);
+}
+
+.heading-md {
+  font-size: clamp(1.6rem, 5.333vw, 3.2rem);
+}
+
+.heading-lg {
+  font-size: clamp(5.6rem, 14.933vw, 10.4rem);
 }
 
 /* BASE */
