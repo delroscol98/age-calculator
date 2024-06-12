@@ -1,60 +1,66 @@
 import { useState } from "react";
 
-import Divider from "./components/Divider";
 import Form from "./components/Form";
 import Results from "./components/Results";
 
 import "./App.css";
 
 function App() {
-  const [day, setDay] = useState();
-  const [month, setMonth] = useState();
-  const [year, setYear] = useState();
-  const [age, setAge] = useState({ day, month, year });
+  const [formData, setFormData] = useState({
+    day: "",
+    month: "",
+    year: "",
+  });
+  const [age, setAge] = useState({
+    day: "--",
+    month: "--",
+    year: "--",
+  });
+  const [errors, setErrors] = useState({});
 
-  const setDayHandler = (e) => {
-    setDay(+e.target.value);
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData({
+      ...formData,
+      [name]: value,
+    });
   };
 
-  const setMonthHandler = (e) => {
-    setMonth(+e.target.value);
-  };
-
-  const setYearHandler = (e) => {
-    setYear(+e.target.value);
-  };
-
-  const calculateHandler = () => {
-    if (
-      day < 1 ||
-      day > 31 ||
-      month < 1 ||
-      month > 12 ||
-      year > new Date().getFullYear()
-    ) {
-      return;
+  const submitHandler = (e) => {
+    e.preventDefault();
+    const validationErrors = {};
+    const ageOutput = {};
+    if (!formData.day.trim() || +formData.day < 1 || +formData.day > 31) {
+      validationErrors.day = "Must be a valid day";
     } else {
-      setAge({
-        day: Math.abs(new Date().getDate() - day),
-        month: Math.abs(new Date().getMonth() - month),
-        year: new Date().getFullYear() - 1 - year,
-      });
+      ageOutput.day = Math.abs(new Date().getDate() - +formData.day);
     }
+
+    if (!formData.month.trim() || formData.month < 1 || formData.month > 12) {
+      validationErrors.month = "Must be a valid month";
+    } else {
+      ageOutput.month = Math.abs(new Date().getMonth() - +formData.month);
+    }
+
+    if (!formData.year.trim() || formData.year > new Date().getFullYear()) {
+      validationErrors.year = "Must be in the past";
+    } else {
+      ageOutput.year = new Date().getFullYear() - +formData.year;
+    }
+
+    setErrors(validationErrors);
+    setAge(ageOutput);
   };
 
   return (
     <div className="app">
       <div className="calculator">
         <Form
-          day={day}
-          onSetDay={setDayHandler}
-          month={month}
-          onSetMonth={setMonthHandler}
-          year={year}
-          onSetYear={setYearHandler}
+          onChange={handleChange}
+          onSubmit={submitHandler}
+          errors={errors}
         />
-        <Divider onSetAge={calculateHandler} />
-        <Results age={age} />
+        <Results age={age} errors={errors} />
       </div>
     </div>
   );

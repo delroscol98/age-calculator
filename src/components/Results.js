@@ -1,25 +1,30 @@
 import "./Results.css";
 
-const Results = ({ age }) => {
+const Results = ({ age, errors }) => {
+  console.log(errors);
   return (
     <div className="results">
       <p className="heading-lg font-very-bold">
         <em>
-          <span className="results__number">{!age.year ? "--" : age.year}</span>
+          <span className="results__number">
+            {!errors.year || !errors.month || !errors.day ? age.year : "--"}
+          </span>
           years
         </em>
       </p>
       <p className="heading-lg font-very-bold">
         <em>
           <span className="results__number">
-            {!age.month ? "--" : age.month}
+            {!errors.year || !errors.month || !errors.day ? age.month : "--"}
           </span>
           months
         </em>
       </p>
       <p className="heading-lg font-very-bold">
         <em>
-          <span className="results__number">{!age.day ? "--" : age.day}</span>
+          <span className="results__number">
+            {!errors.year || !errors.month || !errors.day ? age.day : "--"}
+          </span>
           days
         </em>
       </p>
