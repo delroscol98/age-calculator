@@ -9,9 +9,11 @@ const Form = ({ day, onSetDay, month, onSetMonth, year, onSetYear }) => {
         </label>
         <input
           className="form__input heading-md"
-          type="text"
+          type="number"
           id="day"
           placeholder="DD"
+          min="1"
+          max="31"
           value={day}
           onChange={onSetDay}
         />
@@ -28,9 +30,11 @@ const Form = ({ day, onSetDay, month, onSetMonth, year, onSetYear }) => {
         </label>
         <input
           className="form__input heading-md"
-          type="text"
+          type="number"
           id="month"
           placeholder="MM"
+          min="1"
+          max="12"
           value={month}
           onChange={onSetMonth}
         />
@@ -50,9 +54,10 @@ const Form = ({ day, onSetDay, month, onSetMonth, year, onSetYear }) => {
         </label>
         <input
           className="form__input heading-md"
-          type="text"
+          type="number"
           id="year"
           placeholder="YYYY"
+          max={new Date().getFullYear()}
           value={year}
           onChange={onSetYear}
         />
