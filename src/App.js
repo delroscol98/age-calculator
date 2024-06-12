@@ -1,6 +1,7 @@
 import "./App.css";
 import Divider from "./components/Divider";
 import Form from "./components/Form";
+import Results from "./components/Results";
 
 function App() {
   return (
@@ -8,7 +9,7 @@ function App() {
       <div className="calculator">
         <Form />
         <Divider />
-        <div className="results">RESULTS</div>
+        <Results />
       </div>
     </div>
   );
