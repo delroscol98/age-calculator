@@ -38,6 +38,6 @@
   border: 1px solid var(--light-red);
 }
 
-.form__box.invalid .form__error-msg {
+.form__error-msg {
   color: var(--light-red);
 }
