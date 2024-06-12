@@ -33,7 +33,7 @@
   color: var(--light-red);
 }
 
-.form__box.invalid .form__input:focus {
+.form__box.invalid .form__input {
   outline: none;
   border: 1px solid var(--light-red);
 }

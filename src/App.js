@@ -8,8 +8,9 @@ import "./App.css";
 
 function App() {
   const [day, setDay] = useState(new Date().getDate());
-  const [month, setMonth] = useState(new Date().getMonth() + 1);
+  const [month, setMonth] = useState(new Date().getMonth());
   const [year, setYear] = useState(new Date().getFullYear());
+  const [age, setAge] = useState({ day, month, year });
 
   const setDayHandler = (e) => {
     setDay(+e.target.value);
@@ -23,6 +24,14 @@ function App() {
     setYear(+e.target.value);
   };
 
+  const setAgeHandler = () => {
+    setAge({
+      day: Math.abs(new Date().getDate() - day),
+      month: Math.abs(new Date().getMonth() - month),
+      year: new Date().getFullYear() - 1 - year,
+    });
+  };
+
   return (
     <div className="app">
       <div className="calculator">
@@ -34,8 +43,8 @@ function App() {
           year={year}
           onSetYear={setYearHandler}
         />
-        <Divider />
-        <Results day={day} month={month} year={year} />
+        <Divider onSetAge={setAgeHandler} />
+        <Results age={age} />
       </div>
     </div>
   );

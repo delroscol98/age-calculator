@@ -9,17 +9,18 @@ const Form = ({ day, onSetDay, month, onSetMonth, year, onSetYear }) => {
         </label>
         <input
           className="form__input heading-md"
-          type="number"
+          type="text"
           id="day"
           placeholder="DD"
           value={day}
           onChange={onSetDay}
         />
-        {day > 31 && (
-          <p className="form__error-msg ff-body">
-            <em>Must be a valid day</em>
-          </p>
-        )}
+        {day > 31 ||
+          (day < 1 && (
+            <p className="form__error-msg ff-body">
+              <em>Must be a valid day</em>
+            </p>
+          ))}
       </div>
       <div className={`form__box ${month > 12 || month < 1 ? "invalid" : ""}`}>
         <label className="form__label font-bold heading-sm" htmlFor="month">
@@ -27,13 +28,13 @@ const Form = ({ day, onSetDay, month, onSetMonth, year, onSetYear }) => {
         </label>
         <input
           className="form__input heading-md"
-          type="number"
+          type="text"
           id="month"
           placeholder="MM"
           value={month}
           onChange={onSetMonth}
         />
-        {month > 12 && (
+        {(month > 12 || month < 1) && (
           <p className="form__error-msg ff-body">
             <em>Must be a valid month</em>
           </p>
@@ -49,7 +50,7 @@ const Form = ({ day, onSetDay, month, onSetMonth, year, onSetYear }) => {
         </label>
         <input
           className="form__input heading-md"
-          type="number"
+          type="text"
           id="year"
           placeholder="YYYY"
           value={year}
