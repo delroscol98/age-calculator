@@ -20,6 +20,26 @@
   height: 6.4rem;
 }
 
+@media screen and (min-width: 37.5em) {
+  .divider__button {
+    width: 9.6rem;
+    height: 9.6rem;
+  }
+}
+
+@media screen and (min-width: 50em) {
+  .divider__button {
+    left: 100%;
+    transform: translateX(-100%);
+  }
+}
+
 .divider__button--icon {
   width: 2.4rem;
+}
+
+@media screen and (min-width: 37.5em) {
+  .divider__button--icon {
+    width: 4.4rem;
+  }
 }

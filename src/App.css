@@ -24,7 +24,7 @@
 }
 
 .ff-body {
-  font-size: 1.4rem;
+  font-size: clamp(1rem, 3.125vw, 1.4rem);
 }
 
 .heading-sm {
@@ -78,6 +78,18 @@ body {
 @media screen and (min-width: 27em) {
   .app {
     margin-top: 17.1rem;
+  }
+}
+
+@media screen and (min-width: 37.5em) {
+  .app {
+    padding: 5.4rem;
+  }
+}
+
+@media screen and (min-width: 50em) {
+  .app {
+    border-bottom-right-radius: 20rem;
   }
 }
 

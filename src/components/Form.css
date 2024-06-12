@@ -8,6 +8,7 @@
   display: flex;
   flex-direction: column;
   gap: 0.4rem;
+  flex-basis: min(100%, 16rem);
 }
 
 .form__label {
@@ -20,4 +21,23 @@
   border: 1px solid var(--light-grey);
   border-radius: 0.8rem;
   font-weight: 700;
+}
+
+.form__input:focus {
+  outline: none;
+  border: 1px solid var(--purple);
+}
+
+/* ERROR STATES */
+.form__box.invalid .form__label {
+  color: var(--light-red);
+}
+
+.form__box.invalid .form__input:focus {
+  outline: none;
+  border: 1px solid var(--light-red);
+}
+
+.form__box.invalid .form__error-msg {
+  color: var(--light-red);
 }
