@@ -1,13 +1,12 @@
 import "./Results.css";
 
 const Results = ({ age, errors }) => {
-  console.log(errors);
   return (
     <div className="results">
       <p className="heading-lg font-very-bold">
         <em>
           <span className="results__number">
-            {!errors.year || !errors.month || !errors.day ? age.year : "--"}
+            {!errors.year ? age.year : "--"}
           </span>
           years
         </em>
@@ -15,7 +14,7 @@ const Results = ({ age, errors }) => {
       <p className="heading-lg font-very-bold">
         <em>
           <span className="results__number">
-            {!errors.year || !errors.month || !errors.day ? age.month : "--"}
+            {!errors.month ? age.month : "--"}
           </span>
           months
         </em>
@@ -23,7 +22,7 @@ const Results = ({ age, errors }) => {
       <p className="heading-lg font-very-bold">
         <em>
           <span className="results__number">
-            {!errors.year || !errors.month || !errors.day ? age.day : "--"}
+            {!errors.day ? age.day : "--"}
           </span>
           days
         </em>

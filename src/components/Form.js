@@ -5,7 +5,7 @@ const Form = ({ onChange, onSubmit, errors }) => {
   return (
     <form className="form" onSubmit={onSubmit}>
       <div className="form__inputs">
-        <div className={`form__box ${errors.day && "invalid"}`}>
+        <div className={`form__box ${errors.day ? "invalid" : ""}`}>
           <label className="form__label font-bold heading-sm" htmlFor="day">
             DAY
           </label>
@@ -24,7 +24,7 @@ const Form = ({ onChange, onSubmit, errors }) => {
             </p>
           )}
         </div>
-        <div className={`form__box ${errors.month && "invalid"}`}>
+        <div className={`form__box ${errors.month ? "invalid" : ""}`}>
           <label className="form__label font-bold heading-sm" htmlFor="month">
             MONTH
           </label>
@@ -43,7 +43,7 @@ const Form = ({ onChange, onSubmit, errors }) => {
             </p>
           )}
         </div>
-        <div className={`form__box ${errors.year && "invalid"}`}>
+        <div className={`form__box ${errors.year ? "invalid" : ""}`}>
           <label className="form__label font-bold heading-sm" htmlFor="year">
             YEAR
           </label>

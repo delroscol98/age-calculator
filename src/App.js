@@ -39,7 +39,7 @@ function App() {
     if (!formData.month.trim() || formData.month < 1 || formData.month > 12) {
       validationErrors.month = "Must be a valid month";
     } else {
-      ageOutput.month = Math.abs(new Date().getMonth() - +formData.month);
+      ageOutput.month = Math.abs(new Date().getMonth() - +formData.month + 1);
     }
 
     if (!formData.year.trim() || formData.year > new Date().getFullYear()) {
@@ -48,8 +48,17 @@ function App() {
       ageOutput.year = new Date().getFullYear() - +formData.year;
     }
 
-    setErrors(validationErrors);
-    setAge(ageOutput);
+    if (Object.keys(validationErrors).length !== 0) {
+      setErrors(validationErrors);
+      setAge({
+        day: "--",
+        month: "--",
+        year: "--",
+      });
+    } else {
+      setErrors({});
+      setAge(ageOutput);
+    }
   };
 
   return (
