@@ -2,7 +2,7 @@ import "./Results.css";
 
 const Results = ({ age, errors }) => {
   return (
-    <div className="results">
+    <section className="results">
       <p className="heading-lg font-very-bold">
         <em>
           <span className="results__number">
@@ -27,7 +27,7 @@ const Results = ({ age, errors }) => {
           days
         </em>
       </p>
-    </div>
+    </section>
   );
 };
 

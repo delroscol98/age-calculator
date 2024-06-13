@@ -4,8 +4,8 @@ import "./Form.css";
 const Form = ({ onChange, onSubmit, errors }) => {
   return (
     <form className="form" onSubmit={onSubmit}>
-      <div className="form__inputs">
-        <div className={`form__box ${errors.day ? "invalid" : ""}`}>
+      <section className="form__inputs">
+        <article className={`form__box ${errors.day ? "invalid" : ""}`}>
           <label className="form__label font-bold heading-sm" htmlFor="day">
             DAY
           </label>
@@ -23,8 +23,8 @@ const Form = ({ onChange, onSubmit, errors }) => {
               <em>Must be a valid day</em>
             </p>
           )}
-        </div>
-        <div className={`form__box ${errors.month ? "invalid" : ""}`}>
+        </article>
+        <article className={`form__box ${errors.month ? "invalid" : ""}`}>
           <label className="form__label font-bold heading-sm" htmlFor="month">
             MONTH
           </label>
@@ -42,8 +42,8 @@ const Form = ({ onChange, onSubmit, errors }) => {
               <em>Must be a valid month</em>
             </p>
           )}
-        </div>
-        <div className={`form__box ${errors.year ? "invalid" : ""}`}>
+        </article>
+        <article className={`form__box ${errors.year ? "invalid" : ""}`}>
           <label className="form__label font-bold heading-sm" htmlFor="year">
             YEAR
           </label>
@@ -61,8 +61,8 @@ const Form = ({ onChange, onSubmit, errors }) => {
               <em>Must be in the past</em>
             </p>
           )}
-        </div>
-      </div>
+        </article>
+      </section>
       <Divider />
     </form>
   );

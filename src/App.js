@@ -62,16 +62,16 @@ function App() {
   };
 
   return (
-    <div className="app">
-      <div className="calculator">
+    <section className="app">
+      <section className="calculator">
         <Form
           onChange={handleChange}
           onSubmit={submitHandler}
           errors={errors}
         />
         <Results age={age} errors={errors} />
-      </div>
-    </div>
+      </section>
+    </section>
   );
 }
 
